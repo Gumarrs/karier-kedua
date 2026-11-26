@@ -1,5 +1,5 @@
-import {notFound} from "next/navigation";import Placeholder from "@/components/Placeholder";import {facilitators} from "@/data/facilitators";
+import {notFound} from "next/navigation";import Photo from "@/components/Photo";import {facilitators} from "@/data/facilitators";
 export function generateStaticParams(){return facilitators.map(f=>({slug:f.slug}))}
 export default function P({params}:{params:{slug:string}}){const f=facilitators.find(x=>x.slug===params.slug);if(!f)notFound();
-return(<article className="mx-auto max-w-6xl px-6 py-20 grid gap-12 md:grid-cols-3"><Placeholder label={f.name} className="aspect-[3/4]"/><div className="md:col-span-2 space-y-5"><h1 className="font-serif text-4xl">{f.name}</h1><p className="text-gold-dark">{f.title}</p>{f.fullBio.map((p,i)=><p key={i}>{p}</p>)}
+return(<article className="mx-auto max-w-6xl px-6 py-20 grid gap-12 md:grid-cols-3"><Photo src={`/images/facilitators/${f.slug}.svg`} label={f.name} className="aspect-[3/4] w-full rounded-2xl"/><div className="md:col-span-2 space-y-5"><h1 className="font-serif text-4xl">{f.name}</h1><p className="text-gold-dark">{f.title}</p>{f.fullBio.map((p,i)=><p key={i}>{p}</p>)}
 <h2 className="font-serif text-2xl">Perjalanan Karier</h2><ul className="list-disc pl-5">{f.experience.map(e=><li key={e}>{e}</li>)}</ul><h2 className="font-serif text-2xl">Minat</h2><p>{f.interests.join(", ")}</p><blockquote className="border-l-4 border-gold pl-4 font-serif text-xl">“{f.quote}”</blockquote></div></article>)}
