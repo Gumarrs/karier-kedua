@@ -1,0 +1,2 @@
+import PageHead from "@/components/PageHead";import {clients} from "@/data/clients";export const metadata={title:"Klien — Karier Kedua"};
+export default function P(){return(<><PageHead title="Klien"/><div className="mx-auto max-w-6xl px-6 py-20 space-y-12">{Object.entries(clients).map(([g,l])=><section key={g}><h2 className="font-serif text-2xl text-gold-dark mb-4">{g}</h2><ul className="grid gap-3 grid-cols-2 md:grid-cols-4">{l.map(c=><li key={c} className="border border-navy/15 p-4 text-center">{c}</li>)}</ul></section>)}</div></>)}

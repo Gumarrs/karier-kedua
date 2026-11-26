@@ -1,0 +1,7 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+html{scroll-behavior:smooth}body{background:#F5F2EA;color:#101D2B;line-height:1.7}
+:focus-visible{outline:2px solid #B99558;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.marquee{animation:marquee 40s linear infinite}
+.line{display:block;overflow:hidden}.line>span{display:block}

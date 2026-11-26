@@ -1,0 +1,1 @@
+export default function Placeholder({label="Gambar",className=""}:{label?:string;className?:string}){return <div role="img" aria-label={label} className={`flex items-center justify-center p-4 text-center bg-gradient-to-br from-navy-700 to-navy text-gold-light/70 text-sm tracking-widest uppercase border border-gold/20 ${className}`}>{label}</div>}

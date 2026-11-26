@@ -1,0 +1,2 @@
+import PageHead from "@/components/PageHead";import {testimonials} from "@/data/testimonials";export const metadata={title:"Testimoni — Karier Kedua"};
+export default function P(){return(<><PageHead title="Testimoni"/><div className="mx-auto max-w-6xl px-6 py-20 grid gap-10 md:grid-cols-2">{testimonials.map(t=><figure key={t.name}><blockquote className="font-serif text-xl">“{t.quote}”</blockquote><figcaption className="mt-3"><b>{t.name}</b><br/>{t.role}, {t.company}</figcaption></figure>)}</div></>)}

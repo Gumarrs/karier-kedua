@@ -1,0 +1,2 @@
+import PageHead from "@/components/PageHead";import {programs} from "@/data/brand";import {WA} from "@/lib/utils";export const metadata={title:"Program — Karier Kedua"};
+export default function P(){return(<><PageHead title="Program"/><section className="mx-auto max-w-5xl px-6 py-20 divide-y">{programs.map(([t,d])=><div key={t} className="py-8 md:flex justify-between gap-8"><div><h2 className="font-serif text-2xl">{t}</h2><p>{d}</p></div><a href={WA} className="text-gold-dark underline">Konsultasi Program</a></div>)}</section></>)}

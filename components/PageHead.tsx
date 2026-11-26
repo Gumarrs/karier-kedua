@@ -1,0 +1,1 @@
+export default function PageHead({title,sub}:{title:string;sub?:string}){return <section className="bg-navy text-ivory px-6 py-24"><div className="mx-auto max-w-5xl"><h1 className="font-serif text-4xl md:text-6xl">{title}</h1>{sub&&<p className="mt-6 max-w-2xl text-lg text-ivory/75">{sub}</p>}</div></section>}
