@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";import {usePathname} from "next/navigation";import {useState} from "react";import {Menu,X,ArrowRight,Leaf,Youtube,Linkedin,Instagram} from "lucide-react";import {nav,mainNav,brand} from "@/data/brand";import {WA} from "@/lib/utils";
 const Logo=()=><Link href="/" className="flex items-center gap-2 font-serif text-xl text-navy font-bold"><Leaf className="text-gold" aria-hidden/>Karier Kedua</Link>;
-export function Navbar(){const [o,s]=useState(false);const p=usePathname();return(<header className="fixed top-0 z-50 w-full bg-white/90 backdrop-blur shadow-sm"><div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3"><Logo/>
+export function Navbar(){const [o,s]=useState(false);const p=usePathname();return(<header className="fixed top-0 z-50 w-full bg-ivory/90 backdrop-blur shadow-sm"><div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3"><Logo/>
 <nav aria-label="Utama" className="hidden xl:flex gap-6 text-sm text-navy">{mainNav.map(([n,h])=><Link key={h} href={h} className={`py-2 border-b-2 ${p===h?"border-gold font-semibold":"border-transparent hover:border-gold/50"}`}>{n}</Link>)}</nav>
 <a href={WA} className="hidden xl:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gold to-gold-light px-6 py-3 text-sm font-semibold text-navy shadow">Konsultasi Sekarang <ArrowRight size={16}/></a>
 <button aria-label="Menu" aria-expanded={o} className="xl:hidden p-2 text-navy" onClick={()=>s(!o)}>{o?<X/>:<Menu/>}</button></div>

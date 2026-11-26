@@ -1,0 +1,12 @@
+"use client";
+import {useLayoutEffect,useRef} from "react";import gsap from "gsap";import {ArrowRight} from "lucide-react";import Photo from "./Photo";import {assets} from "@/data/assets";import {WA} from "@/lib/utils";
+export default function Hero(){const r=useRef<HTMLElement>(null);
+useLayoutEffect(()=>{if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+const c=gsap.context(()=>{gsap.timeline({defaults:{ease:"power3.out"}}).from(".hx-in",{y:28,opacity:0,duration:.8,stagger:.1}).fromTo(".hx-img",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:1.3,ease:"power4.inOut"},0.1).from(".hx-img img",{scale:1.15,duration:1.6},0.1).from(".hx-badge",{y:20,opacity:0,duration:.7},"-=.4")},r);return()=>c.revert()},[]);
+return(<section ref={r} className="bg-ivory"><div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-10 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:py-20">
+<div className="lg:col-span-6"><p className="hx-in mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[.2em] text-coral sm:text-sm"><span className="h-px w-8 bg-coral"/>Persiapan Pensiun &amp; Outplacement</p>
+<h1 className="hx-in h-hero text-navy">Karier Boleh Berakhir. <span className="text-coral">Perjalanan Hidup</span> Terus Berlanjut.</h1>
+<p className="hx-in lead mt-6 max-w-xl text-navy/75">Kami membantu individu dan perusahaan mempersiapkan masa transisi menuju kehidupan yang berkecukupan, bahagia, aktif, dan sehat.</p>
+<div className="hx-in mt-8 flex flex-col gap-3 sm:flex-row"><a href="/program" className="inline-flex items-center justify-center gap-2 rounded-full bg-navy px-7 py-3.5 font-semibold text-ivory transition hover:bg-navy-800">Jelajahi Program <ArrowRight size={18}/></a><a href={WA} className="inline-flex items-center justify-center rounded-full bg-sun px-7 py-3.5 font-semibold text-navy transition hover:bg-gold-light">Konsultasi Perusahaan</a></div></div>
+<div className="relative lg:col-span-6"><div className="hx-img overflow-hidden rounded-2xl"><Photo src={assets.hero.src} label={assets.hero.brief} className="aspect-[4/5] w-full sm:aspect-[5/4] lg:aspect-[4/5]"/></div>
+<div className="hx-badge absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 rounded-xl bg-ivory/95 p-4 shadow-lg sm:right-auto sm:max-w-xs"><p className="font-serif text-3xl text-navy">30.000+</p><p className="text-sm leading-snug text-navy/70">peserta sejak 2009</p></div></div></div></section>)}

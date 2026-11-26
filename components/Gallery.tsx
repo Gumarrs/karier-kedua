@@ -1,7 +1,7 @@
 "use client";
-import {useCallback,useEffect,useRef,useState} from "react";import gsap from "gsap";import {X,ChevronLeft,ChevronRight} from "lucide-react";import {categories,gallery} from "@/data/gallery";
+import {useCallback,useEffect,useRef,useState} from "react";import gsap from "gsap";import {X,ChevronLeft,ChevronRight} from "lucide-react";import Photo from "./Photo";import {categories,gallery} from "@/data/gallery";
 const tone=["from-navy-700 to-navy","from-[#2a3a4d] to-navy-800","from-[#3b3226] to-navy"];
-function Img({g,className=""}:{g:typeof gallery[number];className?:string}){return g.src?<img src={g.src} alt={g.title} className={`object-cover w-full ${className}`}/>:<div role="img" aria-label={g.title} className={`bg-gradient-to-br ${tone[g.id%3]} flex items-end p-4 text-gold-light/80 text-xs uppercase tracking-widest w-full ${className}`}>{g.category}</div>}
+function Img({g,className=""}:{g:typeof gallery[number];className?:string}){return g.src?<Photo src={g.src} label={g.title} className={`w-full ${className}`}/>:<div role="img" aria-label={g.title} className={`bg-gradient-to-br ${tone[g.id%3]} flex items-end p-4 text-gold-light/80 text-xs uppercase tracking-widest w-full ${className}`}>{g.category}</div>}
 export default function Gallery(){const [cat,setCat]=useState<string>("Semua");const [open,setOpen]=useState<number|null>(null);const grid=useRef<HTMLDivElement>(null);
 const list=gallery.filter(g=>cat==="Semua"||g.category===cat);
 useEffect(()=>{if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;gsap.fromTo(grid.current?.children??[],{y:30,opacity:0},{y:0,opacity:1,duration:.6,stagger:.05,ease:"power3.out"})},[cat]);

@@ -1,7 +1,11 @@
 @tailwind base;@tailwind components;@tailwind utilities;
-html{scroll-behavior:smooth}body{background:#F7FAFF;color:#101D2B;line-height:1.7}
+html{scroll-behavior:smooth}body{background:#FAF8F3;color:#101D2B;line-height:1.7}
 :focus-visible{outline:2px solid #B99558;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 @keyframes marquee{to{transform:translateX(-50%)}}
 .marquee{animation:marquee 40s linear infinite}
 .line{display:block;overflow:hidden}.line>span{display:block}
+body{overflow-x:clip}
+.h-hero{font-family:var(--font-display);font-size:clamp(2.5rem,5.2vw,4.75rem);line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+.h-sec{font-family:var(--font-display);font-size:clamp(2rem,3.7vw,3.4rem);line-height:1.12;text-wrap:balance}
+.lead{font-size:clamp(1rem,1.25vw,1.2rem);line-height:1.7}

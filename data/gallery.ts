@@ -4,4 +4,4 @@ export type G={id:number;title:string;category:Exclude<typeof categories[number]
 const t=["Sesi Kelas Pagi","Diskusi Kelompok","Workshop Bisnis Online","Peserta & Pasangan","Tim Fasilitator","Permainan Edukatif","Sesi Keuangan","Workshop Hidroponik","Foto Bersama","Konsultasi Ppribadi","Pelatihan Inhouse","Refleksi Spiritual"];
 const c:G["category"][]=["Pelatihan","Aktivitas","Workshop","Peserta","Fasilitator","Aktivitas","Pelatihan","Workshop","Peserta","Fasilitator","Pelatihan","Peserta"];
 const r:G["ratio"][]=["aspect-[4/5]","aspect-[4/3]","aspect-square","aspect-[4/3]","aspect-[4/5]","aspect-square"];
-export const gallery:G[]=t.map((title,i)=>({id:i+1,src:`/images/gallery/gallery-${String(i+1).padStart(2,"0")}.svg`,title,category:c[i],ratio:r[i%6]}));
+export const gallery:G[]=t.map((title,i)=>({id:i+1,src:`/images/photos/gallery-${String(i+1).padStart(2,"0")}.jpg`,title,category:c[i],ratio:r[i%6]}));
