@@ -1,15 +1,11 @@
 "use client";
-import dynamic from "next/dynamic";import {useLayoutEffect,useRef} from "react";import gsap from "gsap";import {ScrollTrigger} from "gsap/ScrollTrigger";import {ArrowDown} from "lucide-react";import {WA} from "@/lib/utils";
-const HeroScene=dynamic(()=>import("./three/HeroScene"),{ssr:false});
-export default function HeroSection(){const root=useRef<HTMLElement>(null);
-useLayoutEffect(()=>{if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;gsap.registerPlugin(ScrollTrigger);
-const c=gsap.context(()=>{const tl=gsap.timeline({defaults:{ease:"power4.out"}});
-tl.from(".line>span",{yPercent:110,duration:1.1,stagger:.15}).from(".h-fade",{y:24,opacity:0,duration:.8,stagger:.12},"-=.5").from(".h-scene",{opacity:0,scale:.85,duration:1.4},0);
-gsap.to(".h-scene",{yPercent:15,ease:"none",scrollTrigger:{trigger:root.current,start:"top top",end:"bottom top",scrub:true}})},root);return()=>c.revert()},[]);
-return(<section ref={root} className="relative overflow-hidden bg-navy text-ivory min-h-[92vh] flex items-center">
-<div className="h-scene absolute inset-y-0 right-0 w-full md:w-3/5 opacity-80"><HeroScene/></div>
-<div className="relative z-10 mx-auto max-w-7xl w-full px-6 py-28"><p className="h-fade text-gold tracking-[.3em] text-xs uppercase mb-6">Pelatihan Pensiun &amp; Outplacement · Sejak 2009</p>
-<h1 className="font-serif text-5xl md:text-8xl leading-[1.02] max-w-4xl"><span className="line"><span>Persiapkan Hari Esok.</span></span><span className="line"><span className="text-gold">Mulai Karier Kedua</span></span><span className="line"><span>Hari Ini.</span></span></h1>
-<p className="h-fade mt-8 text-lg text-ivory/75 max-w-xl">Program persiapan pensiun dan outplacement yang membantu karyawan mempersiapkan masa depan secara finansial, mental, fisik, spiritual, dan personal.</p>
-<div className="h-fade mt-10 flex flex-wrap gap-4"><a href={WA} className="bg-gold text-navy px-8 py-4 font-medium hover:bg-gold-light transition">Diskusikan Program Anda</a><a href="/program" className="border border-gold/50 px-8 py-4 hover:bg-gold/10 transition">Jelajahi Karier Kedua</a></div></div>
-<ArrowDown aria-hidden className="absolute bottom-8 left-1/2 text-gold animate-bounce"/></section>)}
+import {useLayoutEffect,useRef} from "react";import gsap from "gsap";import {ArrowRight,Play,Award,Users,Building2,Leaf} from "lucide-react";import Counter from "./Counter";import Photo from "./Photo";
+export default function HeroSection(){const r=useRef<HTMLElement>(null);
+useLayoutEffect(()=>{if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;const c=gsap.context(()=>{gsap.from(".h-in",{y:30,opacity:0,duration:.9,stagger:.12,ease:"power3.out"});gsap.from(".h-photo",{x:60,opacity:0,duration:1.2,ease:"power3.out"})},r);return()=>c.revert()},[]);
+return(<section ref={r} className="relative bg-gradient-to-b from-sky-200/70 via-sky-50 to-transparent pt-12 pb-24"><div className="mx-auto max-w-7xl px-6 grid md:grid-cols-2 items-center gap-8 min-h-[520px]">
+<div><h1 className="h-in font-serif text-4xl md:text-6xl font-bold leading-tight text-navy">Mempersiapkan Masa Pensiun Bukan Akhir dari Karier</h1>
+<p className="h-in mt-6 text-lg text-navy/80 max-w-md">Karier Kedua hadir untuk membantu Anda menjalani kehidupan berikutnya yang berkecukupan, bahagia, aktif dan sehat.</p>
+<div className="h-in mt-8 flex items-center gap-5"><a href="/program" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gold to-gold-light px-7 py-3.5 font-semibold text-navy shadow-lg">Pelajari Program Kami <ArrowRight size={18}/></a><a href="#bukti" className="flex items-center gap-3 text-sm font-medium text-navy"><span className="grid h-11 w-11 place-items-center rounded-full bg-white shadow"><Play size={16}/></span>Tonton Video</a></div></div>
+<Photo src="/images/hero/hero-main.jpg" label="Hero: public/images/hero/hero-main.jpg" className="h-photo w-full aspect-[4/3] rounded-[2rem] shadow-xl"/></div>
+<div className="relative mx-auto -mb-36 mt-10 max-w-6xl px-6"><div className="grid grid-cols-2 md:grid-cols-4 gap-6 rounded-3xl bg-white p-6 shadow-xl md:divide-x divide-navy/10 text-navy">
+{[[Award,"Sejak","2009"],[Users,<Counter key="c" to={30000} suffix="+"/>,"Peserta"],[Building2,"Perusahaan","Klien Terpercaya"],[Leaf,"BeBAS","Berkecukupan, Bahagia, Aktif, Sehat"]].map(([I,a,b]:any,i)=><div key={i} className="flex items-center gap-3 md:justify-center md:px-4"><I className="shrink-0 text-gold" size={32}/><div><p className="text-xl font-bold">{a}</p><p className="text-sm text-navy/70 leading-snug">{b}</p></div></div>)}</div></div></section>)}
