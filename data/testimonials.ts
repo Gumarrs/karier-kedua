@@ -4,3 +4,5 @@ export const testimonials=[
 {name:"Achmad Barizi",role:"Head of Production",company:"British American Tobacco",quote:"I believe this is an extraordinary opportunity to step out of the comfort zone that we are about to enter."},
 {name:"Giguk Tri Harianto",role:"General Manager",company:"PT Meiji Indonesia",quote:"The program was incredibly valuable. It gave us time to discuss our second career seriously with our spouse and align our perspectives."},
 {name:"Ronny Siahaan",role:"Senior Manager Audit & Integrity",company:"PT Medco E&P Indonesia",quote:"These two days opened a new door and a new horizon that made me feel more confident moving forward."}];
+// ===== DUMMY testimonials =====
+testimonials.push({name:"Nama Peserta A",role:"Manajer SDM",company:"Perusahaan Contoh",quote:"Program yang hangat dan praktis. Kami pulang dengan rencana yang jelas. (Dummy)"},{name:"Nama Peserta B",role:"Karyawan",company:"Instansi Contoh",quote:"Saya tidak lagi takut menghadapi pensiun. (Dummy)"});

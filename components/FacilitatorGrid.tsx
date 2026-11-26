@@ -1,0 +1,7 @@
+"use client";
+import Link from "next/link";import {useState} from "react";import Placeholder from "./Placeholder";import {facilitators} from "@/data/facilitators";
+export default function FacilitatorGrid({limit,filters=true}:{limit?:number;filters?:boolean}){const [q,setQ]=useState("");const [e,setE]=useState("Semua");
+const tags=["Semua",...Array.from(new Set(facilitators.flatMap(f=>f.expertise)))];
+let l=facilitators.filter(f=>(e==="Semua"||f.expertise.includes(e))&&(f.name+f.title).toLowerCase().includes(q.toLowerCase()));if(limit)l=l.slice(0,limit);
+return(<div>{filters&&<div className="mb-10 flex flex-col gap-4 md:flex-row md:items-center"><input aria-label="Cari fasilitator" value={q} onChange={x=>setQ(x.target.value)} placeholder="Cari nama atau keahlian…" className="border border-navy/20 bg-transparent px-4 py-3 md:w-80"/><div className="flex flex-wrap gap-2">{tags.map(t=><button key={t} onClick={()=>setE(t)} className={`px-4 py-2 text-sm border ${e===t?"bg-navy text-gold-light":"border-navy/20"}`}>{t}</button>)}</div></div>}
+<div className="grid gap-x-6 gap-y-12 grid-cols-2 lg:grid-cols-3">{l.map((f,i)=><Link key={f.id} href={`/fasilitator/${f.slug}`} className={`group ${i%3===1?"lg:mt-14":""}`}><div className="overflow-hidden"><Placeholder label={f.name} className="aspect-[3/4] transition duration-700 group-hover:scale-105"/></div><h3 className="font-serif text-xl mt-4 group-hover:text-gold-dark">{f.name}</h3><p className="text-sm text-navy/70">{f.title}</p></Link>)}{!l.length&&<p>Tidak ada hasil.</p>}</div></div>)}
