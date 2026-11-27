@@ -1,11 +1,8 @@
 @tailwind base;@tailwind components;@tailwind utilities;
-html{scroll-behavior:smooth}body{background:#FAF8F3;color:#101D2B;line-height:1.7}
-:focus-visible{outline:2px solid #B99558;outline-offset:3px}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-@keyframes marquee{to{transform:translateX(-50%)}}
-.marquee{animation:marquee 40s linear infinite}
-.line{display:block;overflow:hidden}.line>span{display:block}
-body{overflow-x:clip}
-.h-hero{font-family:var(--font-display);font-size:clamp(2.5rem,5.2vw,4.75rem);line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
-.h-sec{font-family:var(--font-display);font-size:clamp(2rem,3.7vw,3.4rem);line-height:1.12;text-wrap:balance}
-.lead{font-size:clamp(1rem,1.25vw,1.2rem);line-height:1.7}
+html{scroll-behavior:smooth}body{background:#fff;color:#172554;line-height:1.7;overflow-x:clip}
+:focus-visible{outline:2px solid #FFB81C;outline-offset:3px}
+.h1{font-size:clamp(2.25rem,5vw,4rem);line-height:1.1;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+.h2{font-size:clamp(1.75rem,3.2vw,2.75rem);line-height:1.15;font-weight:800;letter-spacing:-.01em;text-wrap:balance}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:9999px;padding:.85rem 1.6rem;font-weight:600;transition:.25s}
+.btn:hover{transform:translateY(-2px)}.card{background:#fff;border-radius:1.25rem;box-shadow:0 8px 30px rgba(16,43,104,.08)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
